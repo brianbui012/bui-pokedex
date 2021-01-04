@@ -46,7 +46,6 @@ app.post('/search', async (req,res) => {
         console.log(data.body.name);
         console.log(data.body.abilities);
         console.log(data.body.moves[0]);
-        // console.log(data.body.types);
         console.log(data.body.types[0].type.name)
         console.log(data.body.types[1].type.name)
 
@@ -59,7 +58,7 @@ app.post('/search', async (req,res) => {
     });
 })
 
-app.listen('3000', ()=> {
+app.listen(process.env.PORT || '3000', ()=> {
     console.log('Server Port 3000 is up and running!')
 });
 
