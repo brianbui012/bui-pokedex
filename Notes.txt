@@ -1,0 +1,33 @@
+Main Priority
+- Have a search bar
+- Have a options selection by Number and also Alphabetical order
+- Search pokemon by type
+
+
+We can do the main search bar and do fetch to front end render the pokemon on the main page.
+
+
+
+
+Lower Priority 
+- Search pokemon by picture and pagination? 
+- Display pokemon weaknesses
+
+
+Early Result - Pokedex
+
+End Result - Team builder, but needs to know how to store Pokemon team and find their weaknesses
+
+We will have the landing page of the website do fetch calls for pokemon that you can search in the serach bar.
+Below it will have the generation 1 button, which will then show pokemon from one generation / maybe we will need to paginate.
+Or we can do something where when you click next page it loads from the front end so the page doesnt need to refresh? maybe
+
+// 12/30/2020
+
+We add an option selection drop down of pokemon to the list , which then adds the value into the input and searches.
+
+// 01/02/2020
+
+Lets put more generations in there, we could even do all since we have the list thingy, and then we can make the card look better and add front size backside / maybe shiny view.
+
+Then we can start on doing backend for the More about this pokemon option.

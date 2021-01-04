@@ -1,0 +1,430 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #43464b;
+  font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+}
+
+/* Navbar====================================== */
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 50px 0 0;
+  background-color: #ee1515;
+}
+
+.nav-container a:first-child {
+  margin-right: auto;
+}
+
+.nav-container a:not(:first-child) {
+  margin-left: 1.6em;
+}
+.nav-container a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5em;
+  letter-spacing: -2.2px;
+}
+
+#hamburger {
+  display: none;
+}
+
+.logo {
+  width: 7.5em;
+  padding: 0.4em;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 900px) {
+  .nav-container {
+    flex-direction: column;
+    /* align-items: flex-end; */
+  }
+
+  /* selects the first child of the parent, so we need to direct it at the a */
+  .nav-container a:not(:first-child) {
+    display: none;
+    margin-left: auto;
+  }
+
+  .nav-container.response a:not(:first-child) {
+    display: block;
+  }
+
+  #hamburger {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+}
+
+/* SEARCH FORM ============================ */
+
+.main_content {
+  min-height: calc(100vh - 77px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1.5em;
+}
+
+#poke_form {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+}
+#poke_search {
+  max-width: 15em;
+  border-radius: 5px;
+  padding: 8px;
+  font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+}
+
+.poke_button {
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #ee1515;
+  font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
+  letter-spacing: -0.1em;
+}
+
+#poke_name {
+  text-align: center;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+#poke_num {
+  display: inline-block;
+}
+
+#poke_img {
+  width: 150px;
+  margin-top: 20px;
+}
+
+.type_icon_1,
+.type_icon_2 {
+  width: 2.5em;
+  border-radius: 50%;
+  padding: 0.3em;
+  display: inline-block;
+  margin: 0.5em 0.5em 0 0.5em;
+}
+
+.poke_type {
+  text-transform: capitalize;
+}
+
+.poke_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  row-gap: 10px;
+}
+
+.generation_container {
+  display: flex;
+  justify-content: space-between;
+  min-width: 40em;
+}
+
+.border {
+  border: 2px solid black;
+  padding: 1em;
+  border-radius: 2em;
+  min-height: 22em;
+  min-width: 20em;
+}
+
+/* SVGs */
+/* 
+html body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+  background: #effdff;
+} */
+
+h1 {
+  text-align: center;
+  margin: 2em;
+  color: #333;
+}
+
+.wrapper {
+  width: 800px;
+  margin: auto auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  align-content: center;
+  align-items: center;
+}
+
+.icon {
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  transition: 200ms all;
+}
+
+.icon:hover {
+  filter: saturate(200%);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.icon img {
+  height: 60%;
+  width: 60%;
+  margin: 20%;
+}
+
+.bug {
+  background: #92bc2c;
+  box-shadow: 0 0 20px #92bc2c;
+}
+
+.bug_background {
+  background-image: url(../img/bug.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.dark {
+  background: #595761;
+  box-shadow: 0 0 20px #595761;
+}
+
+.dark_background {
+  background-image: url(../img/dark.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.dragon {
+  background: #0c69c8;
+  box-shadow: 0 0 20px #0c69c8;
+}
+.dragon_background {
+  background-image: url(../img/dragon.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.electric {
+  background: #f2d94e;
+  box-shadow: 0 0 20px #f2d94e;
+}
+
+.electric_background {
+  background-image: url(../img/electric.png);
+  background-size: cover;
+  background-position: 55%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.fire {
+  background: #fba54c;
+  box-shadow: 0 0 20px #fba54c;
+}
+
+.fire_background {
+  background-image: url(../img/fire.png);
+  background-size: cover;
+  background-position: 55%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.fairy {
+  background: #ee90e6;
+  box-shadow: 0 0 20px #ee90e6;
+}
+
+.fairy_background {
+  background-image: url(../img/fairy.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.fighting {
+  background: #d3425f;
+  box-shadow: 0 0 20px #d3425f;
+}
+
+.fighting_background {
+  background-image: url(../img/fighting.png);
+  background-size: cover;
+  background-position: 45%;
+}
+
+.flying {
+  background: #a1bbec;
+  box-shadow: 0 0 20px #a1bbec;
+}
+
+.flying_background {
+  background-image: url(../img/flying.png);
+  background-size: cover;
+  background-position: 55%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.ghost {
+  background: #5f6dbc;
+  box-shadow: 0 0 20px #5f6dbc;
+}
+
+.ghost_background {
+  background-image: url(../img/ghost.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.grass {
+  background: #5fbd58;
+  box-shadow: 0 0 20px #5fbd58;
+}
+
+.grass_background {
+  background-image: url(../img/grass.png);
+  background-size: cover;
+  background-position: 55%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.ground {
+  background: #da7c4d;
+  box-shadow: 0 0 20px #da7c4d;
+}
+
+.ground_background {
+  background-image: url(../img/ground.png);
+  background-size: cover;
+  background-position: 55%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.ice {
+  background: #75d0c1;
+  box-shadow: 0 0 20px #75d0c1;
+}
+
+.ice_background {
+  background-image: url(../img/ice.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.normal {
+  background: #a0a29f;
+  box-shadow: 0 0 20px #a0a29f;
+}
+
+.normal_background {
+  background-image: url(../img/normal.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.poison {
+  background: #b763cf;
+  box-shadow: 0 0 20px #b763cf;
+}
+
+.poison_background {
+  background-image: url(../img/poison.png);
+  background-size: cover;
+  background-position: 55%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.psychic {
+  background: #fa8581;
+  box-shadow: 0 0 20px #fa8581;
+}
+
+.psychic_background {
+  background-image: url(../img/psychic.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.rock {
+  background: #c9bb8a;
+  box-shadow: 0 0 20px #c9bb8a;
+}
+
+.rock_background {
+  background-image: url(../img/rock.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply;
+}
+
+.steel {
+  background: #5695a3;
+  box-shadow: 0 0 20px #5695a3;
+}
+
+.steel_background {
+  background-image: url(../img/steel.png);
+  background-size: cover;
+  background-position: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}
+
+.water {
+  background: #539ddf;
+  box-shadow: 0 0 20px #539ddf;
+}
+
+.water_background {
+  background-image: url(../img/water.png);
+  background-size: cover;
+  background-position: 45%;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}

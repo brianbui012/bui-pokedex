@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="nav-container">
+        <a href="/"><img class="logo" src="img/31-319697_pokemon-logo-png-transparent-pokemon-logo-png-images.png"
+                alt="Logo"></a>
+        <a href="#">About</a>
+        <a href="#">Generation</a>
+        <a href="#">Gallery</a>
+        <a href="#" id="hamburger"><i class="fas fa-bars"></i></a>
+    </nav>
+
+    <main class="main_content">
+        <div class="loader"></div>
+        <div class='poke_card'>
+            <img src="" alt="" id="poke_img">
+            <div>
+                <p id="poke_num"></p>
+                <p id="poke_name"></p>
+            </div>
+
+            <div>
+                <img alt="" class="type_icon_1">
+                <img alt="" class="type_icon_2">
+            </div>
+            <p class="poke_type"></p>
+        </div>
+
+        <!-- We will make the fourm a flex box row and put it in a bigger flexbox that is a column -->
+        <form action="#" id="poke_form">
+            <label for="poke_search"></label>
+            <input id="poke_search" type="text" placeholder="Pokemon">
+            <button class="poke_button">Search</button>
+        </form>
+
+        <div class="generation_container">
+            <select id="poke_dropdown"></select>
+            <select id="poke_dropdownG2"></select>
+            <select id="poke_dropdownG3"></select>
+        </div>
+
+
+    </main>
+
+
+    <script type="module" src="js/javascript.js"></script>
+</body>
+
+</html>
