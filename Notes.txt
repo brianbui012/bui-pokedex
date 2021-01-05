@@ -28,6 +28,45 @@ We add an option selection drop down of pokemon to the list , which then adds th
 
 // 01/02/2020
 
-Lets put more generations in there, we could even do all since we have the list thingy, and then we can make the card look better and add front size backside / maybe shiny view.
+Lets put more generations in there, we could even do all since we have the list thingy, and then we can make the card look better and add front size backside 
+/ maybe shiny view.Then we can start on doing backend for the More about this pokemon option.
 
-Then we can start on doing backend for the More about this pokemon option.
+So it transitions kind of weirdly, I want to change it so it awaits and maybe loads all at once? seems to be a bit better maybe.
+
+Fontside / Backside of card
+Front side can have ability 
+Back side will be containing attack stats and ability
+
+01/3/12
+Originally the search was to look the pokemon up by name, but there was special characters that pokemon have like farfetch 083 with its apostrophe,
+so instead I had to look pokemon up by number, but had problems with auto filling in the search bar because it would look up by name, and takes the name from the value
+of the option.
+So I had to change the value of the option selected to the pokemon number and then fill in the searc textbox with the HTML TEXT of the options and not the value
+of the options so options were originally value = "bulbasaur" > bulbasaur </> turned to value = "1"> bulbasaur </> 
+
+
+//UNSOLVED 
+
+Could not solve issue to do search by number without changing the input value shown. I wanted to show whats inputted in the searchb box as name BUT have the value
+as the number of the pokemon but we cant do that because HTML input does not have a closing tag which means there is no innerHTML / textContent. The thing in the input
+box is the VALUE and not the innerHTML. So to search by the number of the pokemon, the number will also have to show on inside the text input box.
+
+In conclusion we have to just leave it the way it is because it is more intuative for the user and it looks nicer, but we cant search up anything that has special characters
+such as farfetch and hopefully no one will come across this error.
+
+
+To DO LIST 
+
+- Loading for pokemon cards 
+// A loader , we can put is a div that is absolute so it is sitting over the pokemon card 
+- Backside card with stats and ability
+
+
+// We can make it so the opacity is 0 then goes to 1 instead of doing display: none > block or whatever
+
+
+01/04/2021
+We have a fetch in a fetch, maybe think of a way to not do that? Using promises?
+Try splitting the front and back rendering into two different fuctions, so theyre not attached to each other
+
+-box shadow the cards would be cool

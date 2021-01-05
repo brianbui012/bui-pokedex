@@ -70,6 +70,12 @@ body {
 
 /* SEARCH FORM ============================ */
 
+.pokeball_img {
+  width: 25em;
+  position: absolute;
+  transition: opacity 0.35s;
+}
+
 .main_content {
   min-height: calc(100vh - 77px);
   display: flex;
@@ -79,10 +85,16 @@ body {
   row-gap: 1.5em;
 }
 
+.poke-card-container {
+  display: flex;
+  column-gap: 3em;
+}
+
 #poke_form {
   display: flex;
   align-items: center;
   column-gap: 1em;
+  margin-top: 2em;
 }
 #poke_search {
   max-width: 15em;
@@ -100,18 +112,22 @@ body {
 }
 
 #poke_name {
+  margin-top: 0.5em;
   text-align: center;
   text-transform: capitalize;
   display: inline-block;
+  font-size: 1.4em;
+  letter-spacing: -1px;
 }
 
 #poke_num {
   display: inline-block;
+  font-size: 1.4em;
 }
 
 #poke_img {
   width: 150px;
-  margin-top: 20px;
+  margin-top: 4em;
 }
 
 .type_icon_1,
@@ -120,18 +136,113 @@ body {
   border-radius: 50%;
   padding: 0.3em;
   display: inline-block;
-  margin: 0.5em 0.5em 0 0.5em;
+  margin: 0.8em 0.5em 0 0.5em;
 }
 
+.ability {
+  text-transform: capitalize;
+  margin-top: 1.4em;
+  font-size: 1.1em;
+}
 .poke_type {
   text-transform: capitalize;
+  margin-top: 0.5em;
+  font-size: 1.2em;
 }
 
-.poke_card {
+.poke_card,
+.poke_card_back {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  row-gap: 10px;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+/* BACKSIDE */
+.poke_des {
+  line-height: 1.2;
+}
+
+#poke_stats {
+  margin-top: 1.5em;
+  font-size: 1.25em;
+}
+
+#poke_img_back {
+  width: 150px;
+  margin-top: 4em;
+}
+
+.hp_stat {
+  background: #4cbb17;
+  border-radius: 1em;
+  padding: 0.7em;
+  font-size: 0.8em;
+}
+
+.atk_stat {
+  background: #ff5148;
+  border-radius: 1em;
+  padding: 0.7em;
+  font-size: 0.8em;
+}
+.def_stat {
+  background: #95d1e8;
+  border-radius: 1em;
+  padding: 0.7em;
+  font-size: 0.8em;
+}
+
+.spdef_stat {
+  background-color: pink;
+  border-radius: 1em;
+  padding: 0.7em;
+  font-size: 0.8em;
+}
+
+.spatk_stat {
+  background: #b397e1;
+  border-radius: 1em;
+  padding: 0.7em;
+  font-size: 0.8em;
+}
+
+.speed_stat {
+  background: #f0f8ff;
+  border-radius: 1em;
+  padding: 0.7em;
+  font-size: 0.8em;
+}
+
+.border {
+  border: 2px solid black;
+  padding: 1em;
+  border-radius: 2em;
+  min-height: 30em;
+  min-width: 25em;
+  /* temp we will back a backside border so we can have line height */
+}
+
+.border-back {
+  border: 2px solid black;
+  padding: 1em;
+  border-radius: 2em;
+  /* min-height: 25em; */
+  /* temp we will back a backside border so we can have line height */
+  max-width: 25em;
+}
+
+.poke_stat_row {
+  display: flex;
+  margin-top: 0.3em;
+  column-gap: 0.7em;
+}
+.poke_stat_column {
+  display: flex;
+  flex-direction: column;
   row-gap: 10px;
 }
 
@@ -139,14 +250,6 @@ body {
   display: flex;
   justify-content: space-between;
   min-width: 40em;
-}
-
-.border {
-  border: 2px solid black;
-  padding: 1em;
-  border-radius: 2em;
-  min-height: 22em;
-  min-width: 20em;
 }
 
 /* SVGs */
@@ -232,8 +335,8 @@ h1 {
   background-image: url(../img/dragon.png);
   background-size: cover;
   background-position: 50%;
-  background-color: rgba(0, 0, 0, 0.1);
-  background-blend-mode: multiply;
+  /* background-color: rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply; */
 }
 
 .electric {
@@ -257,7 +360,7 @@ h1 {
 .fire_background {
   background-image: url(../img/fire.png);
   background-size: cover;
-  background-position: 55%;
+  background-position: 50%;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
 }
@@ -320,7 +423,7 @@ h1 {
 .grass_background {
   background-image: url(../img/grass.png);
   background-size: cover;
-  background-position: 55%;
+  background-position: 50%;
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
 }

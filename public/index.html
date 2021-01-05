@@ -22,20 +22,52 @@
     </nav>
 
     <main class="main_content">
-        <div class="loader"></div>
-        <div class='poke_card'>
-            <img src="" alt="" id="poke_img">
-            <div>
-                <p id="poke_num"></p>
-                <p id="poke_name"></p>
+
+        <img src="img/pokeball.png" class="pokeball_img" alt=" pokeball">
+
+        <div class=" poke-card-container">
+            <div class='poke_card border'>
+                <img src="" alt="" id="poke_img">
+                <div>
+                    <p id="poke_num"></p>
+                    <p id="poke_name"></p>
+                </div>
+
+                <div>
+                    <img alt="" class="type_icon_1">
+                    <img alt="" class="type_icon_2">
+                </div>
+                <p class="poke_type"></p>
+                <p class="ability"></p>
             </div>
 
-            <div>
-                <img alt="" class="type_icon_1">
-                <img alt="" class="type_icon_2">
+            <!-- Backside -->
+
+            <div class='poke_card_back border-back'>
+                <img src="" alt="" id="poke_img_back">
+                <div>
+                    <p class="poke_des"></p>
+                    <p id="poke_stats">Base Stats</p>
+                </div>
+                <div class="poke_stat_row">
+                    <div class="poke_stat_column">
+                        <p class="hp_stat"></p>
+                        <p class="speed_stat"></p>
+                    </div>
+                    <div class="poke_stat_column">
+                        <p class="atk_stat"></p>
+                        <p class="def_stat"></p>
+                    </div>
+                    <div class="poke_stat_column">
+                        <p class="spatk_stat"></p>
+                        <p class="spdef_stat"></p>
+                    </div>
+                </div>
+
+
             </div>
-            <p class="poke_type"></p>
         </div>
+
 
         <!-- We will make the fourm a flex box row and put it in a bigger flexbox that is a column -->
         <form action="#" id="poke_form">
