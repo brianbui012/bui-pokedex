@@ -84,7 +84,7 @@ body {
 }
 
 .main-content {
-  min-height: calc(100vh - 77px);
+  min-height: calc(100vh - 84px);
   display: flex;
   flex-direction: column;
   align-items: center;
