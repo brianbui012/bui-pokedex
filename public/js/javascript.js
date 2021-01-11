@@ -3,46 +3,58 @@ console.log('Connected');
 import {pokemonG1} from './generationList.js'
 import {pokemonG2} from './generationList.js'
 import {pokemonG3} from './generationList.js'
+import {pokemonG4} from './generationList.js'
+import {pokemonG5} from './generationList.js'
+import {pokemonG6} from './generationList.js'
+import {pokemonG7} from './generationList.js'
+import {pokemonG8} from './generationList.js'
+
+
 import {fillPokemonOptions} from './utils.js'
 import {fillInZero} from './utils.js'
 
 
 const navContainer = document.querySelector('.nav-container');
 const hamburger = document.querySelector('#hamburger');
-const pokeSearch = document.querySelector('#poke_search')
-const pokeButton = document.querySelector('.poke_button')
+const pokeSearch = document.querySelector('#poke-search')
+const pokeButton = document.querySelector('.poke-button')
 
 // Grabbing Elements to fill in 
-const pokeName = document.querySelector('#poke_name');
-const pokeNumDisplay = document.querySelector('#poke_num')
-const pokeImg = document.querySelector('#poke_img');
-const pokeballImg = document.querySelector('.pokeball_img');
+const pokeName = document.querySelector('#poke-name');
+const pokeNumDisplay = document.querySelector('#poke-num')
+const pokeImg = document.querySelector('#poke-img');
+const pokeballImg = document.querySelector('.pokeball-img');
 
 //backside
-const pokeCardBack = document.querySelector('.poke_card_back');
-const pokeImgBack = document.querySelector('#poke_img_back');
-const pokeDes = document.querySelector('.poke_des');
+const pokeCardBack = document.querySelector('.poke-card-back');
+const pokeImgBack = document.querySelector('#poke-img-back');
+const pokeDes = document.querySelector('.poke-description');
 
-const hp = document.querySelector('.hp_stat')
-const speed = document.querySelector('.speed_stat')
-const atk = document.querySelector('.atk_stat')
-const def = document.querySelector('.def_stat')
-const spatk = document.querySelector('.spatk_stat')
-const spdef = document.querySelector('.spdef_stat')
+const hp = document.querySelector('.hp-stat')
+const speed = document.querySelector('.speed-stat')
+const atk = document.querySelector('.atk-stat')
+const def = document.querySelector('.def-stat')
+const spatk = document.querySelector('.spatk-stat')
+const spdef = document.querySelector('.spdef-stat')
 
 
 
-const pokeCard = document.querySelector('.poke_card');
-const pokeType = document.querySelector('.poke_type');
+const pokeCard = document.querySelector('.poke-card');
+const pokeType = document.querySelector('.poke-type');
 
-const pokeTypeIcon1 = document.querySelector('.type_icon_1');
-const pokeTypeIcon2 = document.querySelector('.type_icon_2');
+const pokeTypeIcon1 = document.querySelector('.type-icon-1');
+const pokeTypeIcon2 = document.querySelector('.type-icon-2');
 const pokeAbility = document.querySelector('.ability');
 
 
-const pokeDropdown = document.querySelector('#poke_dropdown');
-const pokeDropdownG2 = document.querySelector('#poke_dropdownG2');
-const pokeDropdownG3 = document.querySelector('#poke_dropdownG3');
+const pokeDropdownG1 = document.querySelector('#poke-dropdownG1');
+const pokeDropdownG2 = document.querySelector('#poke-dropdownG2');
+const pokeDropdownG3 = document.querySelector('#poke-dropdownG3');
+const pokeDropdownG4 = document.querySelector('#poke-dropdownG4');
+const pokeDropdownG5 = document.querySelector('#poke-dropdownG5');
+const pokeDropdownG6 = document.querySelector('#poke-dropdownG6');
+const pokeDropdownG7 = document.querySelector('#poke-dropdownG7');
+const pokeDropdownG8 = document.querySelector('#poke-dropdownG8');
 
 hamburger.addEventListener('click', ()=>{
     if(navContainer.className === "nav-container"){
@@ -67,7 +79,7 @@ pokeButton.addEventListener('click', (e)=> {
         pokeCardBack.style.opacity = "0";
 
         setTimeout(() => {
-            if(pokeCard.classList.value === 'poke_card'){
+            if(pokeCard.classList.value === 'poke-card'){
                 pokeCard.classList.add('border');
                 pokeCardBack.classList.add('border-back')
             };
@@ -75,11 +87,11 @@ pokeButton.addEventListener('click', (e)=> {
             //If a pokemon was normal / flying type then flying should be shown in the background isntead of normal
             //because flying type is more of a defining characteristic of that pokemon rather than normal
             if(data.types.length > 1 && data.types[0].type.name === "normal" && data.types[1].type.name === "flying"){
-                pokeCard.className = `poke_card border ${data.types[1].type.name}_background`;
-                pokeCardBack.className = `poke_card_back border-back ${data.types[1].type.name}_background`;
+                pokeCard.className = `poke-card border ${data.types[1].type.name}-background`;
+                pokeCardBack.className = `poke-card-back border-back ${data.types[1].type.name}-background`;
             } else {
-                pokeCard.className = `poke_card border ${data.types[0].type.name}_background`;
-                pokeCardBack.className = `poke_card_back border-back ${data.types[0].type.name}_background`;
+                pokeCard.className = `poke-card border ${data.types[0].type.name}-background`;
+                pokeCardBack.className = `poke-card-back border-back ${data.types[0].type.name}-background`;
             }
           
             pokeImg.src = data.sprites.front_default;
@@ -95,14 +107,14 @@ pokeButton.addEventListener('click', (e)=> {
             pokeType.innerHTML = `${data.types[0].type.name}`;
             pokeNumDisplay.innerHTML = `#${fillInZero(data.id.toString())}`
             pokeTypeIcon1.src = `img/icons/${data.types[0].type.name}.svg`
-            pokeTypeIcon1.className = `type_icon_1 ${data.types[0].type.name}`
+            pokeTypeIcon1.className = `type-icon-1 ${data.types[0].type.name}`
             
             if(data.types.length > 1){
                 pokeType.innerHTML += `/${data.types[1].type.name}`
                 
                 pokeTypeIcon2.src = `img/icons/${data.types[1].type.name}.svg`
                 pokeTypeIcon2.style.display = "inline-block";
-                pokeTypeIcon2.className = `type_icon_2 ${data.types[1].type.name}`
+                pokeTypeIcon2.className = `type-icon-2 ${data.types[1].type.name}`
                 
             } else {
                 pokeType.innerHTML = `${data.types[0].type.name}`
@@ -111,6 +123,9 @@ pokeButton.addEventListener('click', (e)=> {
             pokeAbility.innerHTML = `Ability: ${data.abilities[0].ability.name}`
 
             //Filling out backside of card
+            // if(data.sprites.back_default === null){
+            //     throw new Error('The backside of the pokemon sprite has not been added to the database. Please try again some other time.')
+            // }
             pokeImgBack.src = data.sprites.back_default;
         
             hp.innerHTML = `HP:</span>${data.stats[0].base_stat}`;
@@ -124,8 +139,15 @@ pokeButton.addEventListener('click', (e)=> {
 
             fetch(`${data.species.url}`).then((response) => response.json())
             .then(data => {
-            pokeDes.innerHTML = data.flavor_text_entries[9].flavor_text;
-        })
+            let i = 9;
+            console.log('data.flavor', data.flavor_text_entries[i].language.name);
+            while (data.flavor_text_entries[i].language.name !== "en"){
+                i++;
+            }
+            console.log(i);
+            pokeDes.innerHTML = data.flavor_text_entries[i].flavor_text;
+            })
+
         }, 400);
        
 
@@ -136,12 +158,26 @@ pokeButton.addEventListener('click', (e)=> {
 
 
     })
+
 })
 
-fillPokemonOptions(pokemonG1, pokeDropdown);
+
+
+fillPokemonOptions(pokemonG1, pokeDropdownG1);
 fillPokemonOptions(pokemonG2, pokeDropdownG2);
 fillPokemonOptions(pokemonG3, pokeDropdownG3);
+fillPokemonOptions(pokemonG4, pokeDropdownG4);
+fillPokemonOptions(pokemonG5, pokeDropdownG5);
+fillPokemonOptions(pokemonG6, pokeDropdownG6);
+fillPokemonOptions(pokemonG7, pokeDropdownG7);
+fillPokemonOptions(pokemonG8, pokeDropdownG8);
 
+function noBackSideRender(response) {
+    if(!response.ok){
+        throw Error(response.statusText);
+    }
+    return response
+}
 
 
 function pokeDropdownListener(pokeDropdown){
@@ -154,6 +190,11 @@ function pokeDropdownListener(pokeDropdown){
 }
 
 
-pokeDropdownListener(pokeDropdown);
+pokeDropdownListener(pokeDropdownG1);
 pokeDropdownListener(pokeDropdownG2);
 pokeDropdownListener(pokeDropdownG3);
+pokeDropdownListener(pokeDropdownG4);
+pokeDropdownListener(pokeDropdownG5);
+pokeDropdownListener(pokeDropdownG6);
+pokeDropdownListener(pokeDropdownG7);
+pokeDropdownListener(pokeDropdownG8);

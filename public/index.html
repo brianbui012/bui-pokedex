@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <title>Pokedex</title>
     <link rel="stylesheet" href="css/style.css">
@@ -21,46 +23,46 @@
         <a href="#" id="hamburger"><i class="fas fa-bars"></i></a>
     </nav>
 
-    <main class="main_content">
+    <main class="main-content">
 
-        <img src="img/pokeball.png" class="pokeball_img" alt=" pokeball">
+        <img src="img/pokeball.png" class="pokeball-img" alt=" pokeball">
 
-        <div class=" poke-card-container">
-            <div class='poke_card border'>
-                <img src="" alt="" id="poke_img">
+        <div class="poke-card-container">
+            <div class='poke-card border'>
+                <img src="" alt="" id="poke-img">
                 <div>
-                    <p id="poke_num"></p>
-                    <p id="poke_name"></p>
+                    <p id="poke-num"></p>
+                    <p id="poke-name"></p>
                 </div>
 
                 <div>
-                    <img alt="" class="type_icon_1">
-                    <img alt="" class="type_icon_2">
+                    <img alt="" class="type-icon-1">
+                    <img alt="" class="type-icon-2">
                 </div>
-                <p class="poke_type"></p>
+                <p class="poke-type"></p>
                 <p class="ability"></p>
             </div>
 
             <!-- Backside -->
 
-            <div class='poke_card_back border-back'>
-                <img src="" alt="" id="poke_img_back">
+            <div class='poke-card-back border-back'>
+                <img src="" alt="" id="poke-img-back">
                 <div>
-                    <p class="poke_des"></p>
-                    <p id="poke_stats">Base Stats</p>
+                    <p class="poke-description"></p>
+                    <p id="poke-stats">Base Stats</p>
                 </div>
-                <div class="poke_stat_row">
-                    <div class="poke_stat_column">
-                        <p class="hp_stat"></p>
-                        <p class="speed_stat"></p>
+                <div class="poke-stat-row">
+                    <div class="poke-stat-column">
+                        <p class="hp-stat"></p>
+                        <p class="speed-stat"></p>
                     </div>
-                    <div class="poke_stat_column">
-                        <p class="atk_stat"></p>
-                        <p class="def_stat"></p>
+                    <div class="poke-stat-column">
+                        <p class="atk-stat"></p>
+                        <p class="def-stat"></p>
                     </div>
-                    <div class="poke_stat_column">
-                        <p class="spatk_stat"></p>
-                        <p class="spdef_stat"></p>
+                    <div class="poke-stat-column">
+                        <p class="spatk-stat"></p>
+                        <p class="spdef-stat"></p>
                     </div>
                 </div>
 
@@ -70,16 +72,52 @@
 
 
         <!-- We will make the fourm a flex box row and put it in a bigger flexbox that is a column -->
-        <form action="#" id="poke_form">
-            <label for="poke_search"></label>
-            <input id="poke_search" type="text" placeholder="Pokemon">
-            <button class="poke_button">Search</button>
+        <form action="#" id="poke-form">
+            <label for="poke-search"></label>
+            <input id="poke-search" type="text" placeholder="Pokemon">
+            <button class="poke-button">Search</button>
         </form>
 
-        <div class="generation_container">
-            <select id="poke_dropdown"></select>
-            <select id="poke_dropdownG2"></select>
-            <select id="poke_dropdownG3"></select>
+        <div class="generation-container">
+            <div class="g1-g4">
+                <div class="generation-column">
+                    <label for="poke-dropdownG1" class="drop-label">Gen 1:</label>
+                    <select class="drop-style" id="poke-dropdownG1"></select>
+                </div>
+                <div class="generation-column">
+                    <label for="poke-dropdownG2" class="drop-label">Gen 2:</label>
+                    <select class="drop-style" id="poke-dropdownG2"></select>
+                </div>
+
+                <div class="generation-column">
+                    <label for="poke-dropdownG3" class="drop-label">Gen 3:</label>
+                    <select class="drop-style" id="poke-dropdownG3"></select>
+                </div>
+                <div class="generation-column">
+                    <label for="poke-dropdownG4" class="drop-label">Gen 4:</label>
+                    <select class="drop-style" id="poke-dropdownG4"></select>
+                </div>
+            </div>
+            <div class="g4-g8">
+                <div class="generation-column">
+                    <label for="poke-dropdownG5" class="drop-label">Gen 5:</label>
+                    <select class="drop-style" id="poke-dropdownG5"></select>
+                </div>
+                <div class="generation-column">
+                    <label for="poke-dropdownG6" class="drop-label">Gen 6:</label>
+                    <select class="drop-style" id="poke-dropdownG6"></select>
+                </div>
+                <div class="generation-column">
+                    <label for="poke-dropdownG7" class="drop-label">Gen 7:</label>
+                    <select class="drop-style" id="poke-dropdownG7"></select>
+                </div>
+                <div class="generation-column">
+                    <label for="poke-dropdownG8" class="drop-label">Gen 8:</label>
+                    <select class="drop-style" id="poke-dropdownG8"></select>
+                </div>
+            </div>
+
+
         </div>
 
 
