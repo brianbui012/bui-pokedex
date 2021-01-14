@@ -3,7 +3,7 @@ export function fillPokemonOptions(pokeArray, pokeDropdown){
         const el = document.createElement("option");
     
         el.textContent = pokeArray[i];
-        el.value = pokeArray[i].split(" ")[1];
+        el.value = pokeArray[i].split(" ")[2];
         pokeDropdown.appendChild(el);
     }
 }

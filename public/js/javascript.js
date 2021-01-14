@@ -70,8 +70,10 @@ pokeButton.addEventListener('click', (e)=> {
     e.preventDefault();
 
     const pokeNameSearch = pokeSearch.value.toLowerCase();
-    
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNameSearch}`)
+    if(pokeNameSearch === ""){
+        console.log('We can add an element that flashes, please input pokemon');
+    } else {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNameSearch}`)
     .then((response) => response.json())
     .then(data => {
         pokeballImg.style.opacity = "0";
@@ -148,17 +150,17 @@ pokeButton.addEventListener('click', (e)=> {
             pokeDes.innerHTML = data.flavor_text_entries[i].flavor_text;
             })
 
-        }, 400);
+        }, 300);
        
 
         setTimeout(()=> {
             pokeCard.style.opacity = "1";
             pokeCardBack.style.opacity = "1";
-        }, 650)
-
-
+        }, 950)
     })
 
+}
+    
 })
 
 

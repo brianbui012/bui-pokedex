@@ -70,3 +70,13 @@ We have a fetch in a fetch, maybe think of a way to not do that? Using promises?
 Try splitting the front and back rendering into two different fuctions, so theyre not attached to each other
 
 -box shadow the cards would be cool
+
+
+01/09/2021
+
+-We are probably going to have to have a error catch in our program and catch the error and render a pokemon card saying something like - Pokemon Information
+in the database is incomplete. Please try again in teh future.
+
+- lets work on the mobile responsiveness
+- then work on fixing the pokemon backside not rendering
+- remember to do a hovering effect on stuff

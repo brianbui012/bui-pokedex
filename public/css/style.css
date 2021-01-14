@@ -12,6 +12,7 @@ body {
   /* background-color: rgba(0, 0, 0, 0.1);
   background-blend-mode: multiply; */
   background-position: 50% 100%;
+  overflow: hidden;
 }
 
 /* Navbar====================================== */
@@ -22,7 +23,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 0 50px 0 0;
-  /* background-color: #ff0000; */
+  /* position: absolute; */
 }
 
 .nav-container a:first-child {
@@ -50,30 +51,6 @@ body {
   object-fit: contain;
 }
 
-@media only screen and (max-width: 900px) {
-  .nav-container {
-    flex-direction: column;
-    /* align-items: flex-end; */
-  }
-
-  /* selects the first child of the parent, so we need to direct it at the a */
-  .nav-container a:not(:first-child) {
-    display: none;
-    margin-left: auto;
-  }
-
-  .nav-container.response a:not(:first-child) {
-    display: block;
-  }
-
-  #hamburger {
-    display: block;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-  }
-}
-
 /* SEARCH FORM ============================ */
 
 .pokeball-img {
@@ -84,7 +61,7 @@ body {
 }
 
 .main-content {
-  min-height: calc(100vh - 84px);
+  min-height: calc(100vh - 6em);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,7 +73,7 @@ body {
   display: flex;
   column-gap: 3em;
   font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
-  margin-top: 9em;
+  margin-top: 7em;
 }
 
 #poke-form {
@@ -114,11 +91,24 @@ body {
 }
 
 .poke-button {
-  padding: 8px;
-  border-radius: 5px;
-  background-color: #ee1515;
-  font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
-  letter-spacing: -0.1em;
+  width: 2.5em;
+  cursor: pointer;
+}
+
+.poke-button:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
 }
 
 #poke-name {
@@ -135,7 +125,8 @@ body {
   font-size: 1.4em;
 }
 
-#poke-img {
+#poke-img,
+#poke-img-back {
   width: 150px;
   margin-top: 4em;
 }
@@ -168,7 +159,7 @@ body {
   text-align: center;
   row-gap: 10px;
   opacity: 0;
-  transition: opacity 0.35s;
+  transition: opacity 0.45s;
   box-shadow: inset 0 0 10px #2a2a2a;
   /* box-shadow: rgba(0, 0, 0, 0.5) 0px 22px 50px 4px; */
 }
@@ -181,11 +172,6 @@ body {
 #poke-stats {
   margin-top: 1.5em;
   font-size: 1.25em;
-}
-
-#poke-img-back {
-  width: 150px;
-  margin-top: 4em;
 }
 
 .hp-stat {
@@ -261,8 +247,8 @@ body {
 .generation-container {
   display: flex;
   flex-direction: column;
-  row-gap: 0.4em;
-  margin-top: 1em;
+  row-gap: 1em;
+  margin-top: 0.2em;
 }
 
 .g1-g4,
@@ -270,6 +256,7 @@ body {
   vertical-align: center;
   display: flex;
   column-gap: 1em;
+  justify-content: center;
 }
 
 .drop-label {
@@ -279,6 +266,7 @@ body {
   background-color: #add8e6;
   border-radius: 1em;
   text-align: center;
+  font-size: 1.1em;
 }
 
 .generation-column {
@@ -287,53 +275,10 @@ body {
   row-gap: 0.2em;
 }
 
-/* SVGs */
-/* 
-html body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1rem;
-  background: #effdff;
-} */
-
 h1 {
   text-align: center;
   margin: 2em;
   color: #333;
-}
-
-.wrapper {
-  width: 800px;
-  margin: auto auto;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(6, 1fr);
-  align-content: center;
-  align-items: center;
-}
-
-.icon {
-  border-radius: 100%;
-  height: 100px;
-  width: 100px;
-  margin: auto;
-  transition: 200ms all;
-}
-
-.icon:hover {
-  filter: saturate(200%);
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-.icon img {
-  height: 60%;
-  width: 60%;
-  margin: 20%;
 }
 
 .drop-style {
@@ -343,6 +288,102 @@ h1 {
   color: black;
   border-radius: 5px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (max-width: 900px) {
+  .main-content {
+    row-gap: 1em;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    /* align-items: flex-end; */
+  }
+
+  /* selects the first child of the parent, so we need to direct it at the a */
+  .nav-container a:not(:first-child) {
+    display: none;
+    margin-left: auto;
+  }
+
+  .nav-container.response a:not(:first-child) {
+    display: block;
+  }
+
+  #hamburger {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+
+  .logo {
+    width: 8.5em;
+  }
+
+  .poke-card-container {
+    flex-direction: column;
+    margin-top: 2em;
+    row-gap: 1.5em;
+    align-items: center;
+  }
+
+  .poke-card-back {
+    display: none;
+  }
+
+  #poke-num {
+    font-size: 1em;
+  }
+
+  #poke-name {
+    font-size: 1em;
+  }
+
+  .poke-type {
+    font-size: 0.8em;
+  }
+
+  .ability {
+    font-size: 0.8em;
+  }
+
+  .border {
+    border-radius: 2em;
+    min-height: 20em;
+    min-width: 17em;
+  }
+
+  .border-back {
+    padding: 1em;
+    border-radius: 2em;
+    max-width: 20em;
+    min-height: 25em;
+  }
+
+  #poke-stats {
+    display: none;
+  }
+
+  .poke-stat-row {
+    display: none;
+  }
+
+  #poke-img,
+  #poke-img-back {
+    width: 150px;
+    margin-top: 1em;
+  }
+
+  .generation-container {
+    flex-direction: row;
+  }
+  .g1-g4 {
+    flex-direction: column;
+  }
+  .g4-g8 {
+    flex-direction: column;
+  }
 }
 
 .bug {
