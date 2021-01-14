@@ -307,7 +307,7 @@ h1 {
   .pokeball-img {
     width: 20em;
     position: absolute;
-    top: 8em;
+    top: 6em;
   }
 
   .nav-container {
@@ -406,13 +406,16 @@ h1 {
 
   .generation-container {
     flex-direction: row;
-    column-gap: 1em;
+    column-gap: 1.5em;
   }
+
   .g1-g4 {
     flex-direction: column;
+    row-gap: 0.7em;
   }
   .g4-g8 {
     flex-direction: column;
+    row-gap: 0.7em;
   }
 }
 
