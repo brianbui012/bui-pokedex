@@ -363,10 +363,11 @@ h1 {
     margin-top: 0;
   }
 
-  .poke-type {
-    font-size: 0.8em;
+  .poke-button {
+    margin-left: 0.5em;
   }
 
+  .poke-type,
   .ability {
     font-size: 0.8em;
   }
@@ -405,6 +406,7 @@ h1 {
 
   .generation-container {
     flex-direction: row;
+    column-gap: 1em;
   }
   .g1-g4 {
     flex-direction: column;
