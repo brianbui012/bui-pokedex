@@ -343,6 +343,10 @@ h1 {
     align-items: center;
   }
 
+  .poke-card {
+    row-gap: 0;
+  }
+
   .poke-card-back {
     display: none;
   }
@@ -365,7 +369,7 @@ h1 {
 
   .border {
     border-radius: 2em;
-    min-height: 20em;
+    min-height: 21.5em;
     min-width: 17em;
   }
 
@@ -391,8 +395,8 @@ h1 {
 
   #poke-img,
   #poke-img-back {
+    margin-top: 0;
     width: 150px;
-    margin-top: 1em;
   }
 
   .generation-container {
