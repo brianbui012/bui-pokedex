@@ -9,8 +9,6 @@ body {
   font-family: "Audiowide", Arial, Helvetica, sans-serif;
   background: url("../img/pokemon-background.jpg");
   background-size: cover;
-  /* background-color: rgba(0, 0, 0, 0.1);
-  background-blend-mode: multiply; */
   background-position: 50% 100%;
   overflow: hidden;
 }
@@ -295,6 +293,7 @@ h1 {
 @media only screen and (max-width: 900px) {
   .main-content {
     row-gap: 1em;
+    min-height: 100vh;
   }
 
   .pokeball-img {
