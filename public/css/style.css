@@ -333,12 +333,12 @@ h1 {
   }
 
   .logo {
-    width: 8.5em;
+    width: 5em;
   }
 
   .poke-card-container {
     flex-direction: column;
-    margin-top: 2em;
+    margin-top: 1em;
     row-gap: 1.5em;
     align-items: center;
   }
@@ -357,6 +357,10 @@ h1 {
 
   #poke-name {
     font-size: 1em;
+  }
+
+  #poke-form {
+    margin-top: 0;
   }
 
   .poke-type {
