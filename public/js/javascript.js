@@ -20,14 +20,14 @@ const pokeSearch = document.querySelector('#poke-search')
 const pokeButton = document.querySelector('.poke-button')
 
 // Grabbing Elements to fill in 
-const pokeName = document.querySelector('#poke-name');
-const pokeNumDisplay = document.querySelector('#poke-num')
-const pokeImg = document.querySelector('#poke-img');
+const pokeName = document.querySelector('.poke-name');
+const pokeNumDisplay = document.querySelector('.poke-num')
+const pokeImg = document.querySelector('.poke-img');
 const pokeballImg = document.querySelector('.pokeball-img');
 
 //backside
 const pokeCardBack = document.querySelector('.poke-card-back');
-const pokeImgBack = document.querySelector('#poke-img-back');
+const pokeImgBack = document.querySelector('.poke-img-back');
 const pokeDes = document.querySelector('.poke-description');
 
 const hp = document.querySelector('.hp-stat')
@@ -141,6 +141,7 @@ pokeButton.addEventListener('click', (e)=> {
 
             fetch(`${data.species.url}`).then((response) => response.json())
             .then(data => {
+                //just guarantees that the language is english in the data base
             let i = 9;
             console.log('data.flavor', data.flavor_text_entries[i].language.name);
             while (data.flavor_text_entries[i].language.name !== "en"){

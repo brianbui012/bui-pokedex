@@ -80,3 +80,8 @@ in the database is incomplete. Please try again in teh future.
 - lets work on the mobile responsiveness
 - then work on fixing the pokemon backside not rendering
 - remember to do a hovering effect on stuff
+- it would be cool to have a fade function, where in mobile the card repeatedly flips back and fourth between the front and back side
+
+03/21/2021
+
+Under the pokemon logo we can have a small font that says something like "Got to catch em all"

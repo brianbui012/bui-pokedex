@@ -8,8 +8,9 @@ export function fillPokemonOptions(pokeArray, pokeDropdown){
     }
 }
 
+//Fills in the Zeros on the pokemon card to make it 3 digits
 export function fillInZero(number){
-    while(number.length > 3){
+    while(number.length < 3){
         number = "0" + number;
     }
     return number;
