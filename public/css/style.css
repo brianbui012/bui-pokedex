@@ -4,10 +4,6 @@
   margin: 0;
 }
 
-/* html {
-  height: 100%;
-} */
-
 body {
   background-color: #43464b;
   font-family: "Audiowide", Arial, Helvetica, sans-serif;
@@ -26,7 +22,6 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 0 50px 0 0;
-  /* position: absolute; */
 }
 
 .nav-container a:first-child {
@@ -76,7 +71,6 @@ body {
   display: flex;
   column-gap: 3em;
   font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
-  /* margin-top: 7em; */
 }
 
 #poke-form {
@@ -219,7 +213,6 @@ body {
 }
 
 .border {
-  /* border: 2px solid black; */
   padding: 1em;
   border-radius: 2em;
   min-height: 32em;
@@ -228,7 +221,6 @@ body {
 }
 
 .border-back {
-  /* border: 2px solid black; */
   padding: 1em;
   border-radius: 2em;
   /* min-height: 25em; */

@@ -124,14 +124,13 @@ pokeButton.addEventListener('click', (e)=> {
 
             pokeAbility.innerHTML = `Ability: ${data.abilities[0].ability.name}`
 
-            //Filling out backside of card
+            // If No Back Sprite (will implement later)
             // if(data.sprites.back_default === null){
             //     throw new Error('The backside of the pokemon sprite has not been added to the database. Please try again some other time.')
             // }
             pokeImgBack.src = data.sprites.back_default;
         
             hp.innerHTML = `HP:</span>${data.stats[0].base_stat}`;
-            // `HP:${data.stats[0].base_stat}`;
             atk.innerHTML = `ATK:</span>${data.stats[1].base_stat}`;
             def.innerHTML = `DEF:</span>${data.stats[2].base_stat}`;
             spatk.innerHTML = `SPATK:</span>${data.stats[3].base_stat}`;
@@ -163,7 +162,6 @@ pokeButton.addEventListener('click', (e)=> {
 }
     
 })
-
 
 
 fillPokemonOptions(pokemonG1, pokeDropdownG1);
