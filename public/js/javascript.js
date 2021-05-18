@@ -16,7 +16,7 @@ import {fillInZero} from './utils.js'
 
 const navContainer = document.querySelector('.nav-container');
 const hamburger = document.querySelector('#hamburger');
-const pokeSearch = document.querySelector('#poke-search')
+const pokeSearch = document.querySelector('.poke-search')
 const pokeButton = document.querySelector('.poke-button')
 
 // Grabbing Elements to fill in 
@@ -47,14 +47,14 @@ const pokeTypeIcon2 = document.querySelector('.type-icon-2');
 const pokeAbility = document.querySelector('.ability');
 
 
-const pokeDropdownG1 = document.querySelector('#poke-dropdownG1');
-const pokeDropdownG2 = document.querySelector('#poke-dropdownG2');
-const pokeDropdownG3 = document.querySelector('#poke-dropdownG3');
-const pokeDropdownG4 = document.querySelector('#poke-dropdownG4');
-const pokeDropdownG5 = document.querySelector('#poke-dropdownG5');
-const pokeDropdownG6 = document.querySelector('#poke-dropdownG6');
-const pokeDropdownG7 = document.querySelector('#poke-dropdownG7');
-const pokeDropdownG8 = document.querySelector('#poke-dropdownG8');
+const pokeDropdownG1 = document.querySelector('.poke-dropdownG1');
+const pokeDropdownG2 = document.querySelector('.poke-dropdownG2');
+const pokeDropdownG3 = document.querySelector('.poke-dropdownG3');
+const pokeDropdownG4 = document.querySelector('.poke-dropdownG4');
+const pokeDropdownG5 = document.querySelector('.poke-dropdownG5');
+const pokeDropdownG6 = document.querySelector('.poke-dropdownG6');
+const pokeDropdownG7 = document.querySelector('.poke-dropdownG7');
+const pokeDropdownG8 = document.querySelector('.poke-dropdownG8');
 
 hamburger.addEventListener('click', ()=>{
     if(navContainer.className === "nav-container"){

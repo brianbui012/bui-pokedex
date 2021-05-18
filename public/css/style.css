@@ -10,7 +10,7 @@ body {
   background: url("../img/pokemon-background.jpg");
   background-size: cover;
   background-position: 50% 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100vh;
 }
 
@@ -49,6 +49,14 @@ body {
   object-fit: contain;
 }
 
+nav a:not(:first-child) {
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover:not(:first-child) {
+  border-bottom: 3px solid black;
+}
+
 /* SEARCH FORM ============================ */
 
 .pokeball-img {
@@ -59,7 +67,7 @@ body {
 }
 
 .main-content {
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,13 +81,13 @@ body {
   font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
 }
 
-#poke-form {
+.poke-form {
   display: flex;
   align-items: center;
   column-gap: 1em;
 }
 
-#poke-search {
+.poke-search {
   max-width: 15em;
   border-radius: 5px;
   padding: 5px;
@@ -331,7 +339,7 @@ h1 {
     font-size: 1em;
   }
 
-  #poke-form {
+  .poke-form {
     margin-top: 0;
   }
 
@@ -415,7 +423,7 @@ h1 {
     font-size: 1em;
   }
 
-  #poke-form {
+  .poke-form {
     margin-top: 0;
   }
 

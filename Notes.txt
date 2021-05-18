@@ -85,3 +85,7 @@ in the database is incomplete. Please try again in teh future.
 03/21/2021
 
 Under the pokemon logo we can have a small font that says something like "Got to catch em all"
+
+0/4/22/2021
+
+The sizes of the cards are too big for smaller resolution screens, we're gonna need to have a fix for that.
