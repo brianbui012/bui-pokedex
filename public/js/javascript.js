@@ -175,11 +175,11 @@ pokeButton.addEventListener('click', async (e)=> {
           
             pokeDes.innerHTML = speciesData.flavor_text_entries[i].flavor_text;
             
-            //Reveals flip card button and resets to frontside
+
             if (window.innerWidth < 650){
                 pokeCardFront.style.display = "block";
                 pokeCardBack.style.display = "none";
-                flipBtn.style.display = "block";
+                flipBtn.style.opacity = "1";
             }
 
         }, 300);
@@ -244,6 +244,15 @@ if (window.innerWidth < 650){
     pokeCardFront.style.display = "block";
     pokeCardBack.style.display = "none";
 }
+
+// window.addEventListener('resize', () => {
+//     if (window.innerWidth > 650){
+//         flipBtn.style.display = "none";
+//     } else {
+//       flipBtn.style.display = "block";
+//     }
+//   })
+  
 
 flipBtn.addEventListener('click', () => {
     if(pokeCardFront.style.display == "block"){
