@@ -10,8 +10,9 @@ body {
   background: url("../img/pokemon-background.jpg");
   background-size: cover;
   background-position: 50% 100%;
-  /* overflow: hidden; */
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  padding: 0.2em 0 3em 0;
 }
 
 /* Navbar====================================== */
@@ -22,6 +23,8 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 0 50px 0 0;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .nav-container a:first-child {
@@ -34,7 +37,7 @@ body {
 }
 .nav-container a {
   text-decoration: none;
-  color: black;
+  color: #141414;
   letter-spacing: -2.2px;
   font-size: 1.5em;
 }
@@ -67,7 +70,6 @@ nav a:hover:not(:first-child) {
 }
 
 .main-content {
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -225,14 +227,11 @@ nav a:hover:not(:first-child) {
   border-radius: 2em;
   min-height: 32em;
   min-width: 25em;
-  /* temp we will back a backside border so we can have line height */
 }
 
 .border-back {
   padding: 1em;
   border-radius: 2em;
-  /* min-height: 25em; */
-  /* temp we will back a backside border so we can have line height */
   max-width: 25em;
 }
 
@@ -265,7 +264,6 @@ nav a:hover:not(:first-child) {
 .drop-label {
   font-weight: 600;
   line-height: 1.2;
-  /* background-color: #d3d3d3; */
   background-color: #add8e6;
   border-radius: 1em;
   text-align: center;
@@ -293,6 +291,56 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* MODAL ================ */
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: none;
+}
+
+.about-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  top: 30%;
+  height: 400px;
+  width: 420px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #add8e6;
+  padding: 2.2em;
+  font-size: 1.2em;
+  border-radius: 1em;
+  line-height: 1.5;
+}
+
+.close-modal {
+  width: 25%;
+  margin: 0 auto;
+  background-color: #348fab;
+  color: white;
+  border-style: none;
+  padding: 0.5em 0;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  background-color: #5eb3ce;
+}
+
+.flipBtn {
+  display: none;
+}
+
 /* RESPONSIVE */
 @media only screen and (max-width: 900px) {
   .main-content {
@@ -302,10 +350,8 @@ h1 {
 
   .nav-container {
     flex-direction: column;
-    /* align-items: flex-end; */
   }
 
-  /* selects the first child of the parent, so we need to direct it at the a */
   .nav-container a:not(:first-child) {
     display: none;
     margin-left: auto;
@@ -438,12 +484,13 @@ h1 {
 
   .border {
     border-radius: 2em;
-    min-height: 20.5em;
+    min-height: 24.5em;
     min-width: 17em;
   }
 
   .poke-card-back {
     display: none;
+    min-height: 24.5em;
   }
 
   .generation-container {
@@ -459,8 +506,22 @@ h1 {
     flex-direction: column;
     row-gap: 0.7em;
   }
+
+  /* .flipBtn {
+    display: block;
+  } */
+
+  /* MODAL */
+
+  .about-modal {
+    width: 80%;
+    height: 50%;
+    padding: 1.5em;
+    font-size: 1.1em;
+  }
 }
 
+/* Background type */
 .bug {
   background: #92bc2c;
   box-shadow: 0 0 20px #92bc2c;

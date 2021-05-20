@@ -20,6 +20,9 @@ const pokeSearch = document.querySelector('.poke-search')
 const pokeButton = document.querySelector('.poke-button')
 
 // Grabbing Elements to fill in 
+const pokeCardContainer = document.querySelector('.poke-card-container');
+const pokeCardFront = document.querySelector('.poke-card');
+
 const pokeName = document.querySelector('.poke-name');
 const pokeNumDisplay = document.querySelector('.poke-num')
 const pokeImg = document.querySelector('.poke-img');
@@ -56,9 +59,26 @@ const pokeDropdownG6 = document.querySelector('.poke-dropdownG6');
 const pokeDropdownG7 = document.querySelector('.poke-dropdownG7');
 const pokeDropdownG8 = document.querySelector('.poke-dropdownG8');
 
+
+const flipBtn = document.querySelector('.flipBtn');
+
+//MODAL 
+
+const aboutModal = document.querySelector('.about');
+const closeModalBtn = document.querySelector('.close-modal');
+const overlay = document.querySelector('.overlay')
+
+aboutModal.addEventListener('click', () => {
+    overlay.style.display = "block";
+})
+
+closeModalBtn.addEventListener('click', () => {
+    overlay.style.display = "none";
+})
+
+
 hamburger.addEventListener('click', ()=>{
     if(navContainer.className === "nav-container"){
-        // navContainer.classList.add('response');
         navContainer.className += " response";
     } else {
         navContainer.className = 'nav-container';
@@ -66,21 +86,26 @@ hamburger.addEventListener('click', ()=>{
     
 })
 
-pokeButton.addEventListener('click', (e)=> {
+//We're going to change this fetch into an async await process
+//  ASYNC AND AWAIT and we need to also have a catch for failed pulls
+pokeButton.addEventListener('click', async (e)=> {
     e.preventDefault();
 
     const pokeNameSearch = pokeSearch.value.toLowerCase();
     if(pokeNameSearch === ""){
         console.log('We can add an element that flashes, please input pokemon');
     } else {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNameSearch}`)
-    .then((response) => response.json())
-    .then(data => {
+
+        //question how do we turn this fetch to async / await // I think we turn the anonymous function into async
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNameSearch}`);
+        const data = await response.json();
+    // .then((response) => response.json())
+    // .then(data => {
         pokeballImg.style.opacity = "0";
         pokeCard.style.opacity = "0";
         pokeCardBack.style.opacity = "0";
 
-        setTimeout(() => {
+        setTimeout( async() => {
             if(pokeCard.classList.value === 'poke-card'){
                 pokeCard.classList.add('border');
                 pokeCardBack.classList.add('border-back')
@@ -138,31 +163,37 @@ pokeButton.addEventListener('click', (e)=> {
             speed.innerHTML = `SPED:</span>${data.stats[5].base_stat}`;
 
 
-            fetch(`${data.species.url}`).then((response) => response.json())
-            .then(data => {
-                //just guarantees that the language is english in the data base
+            //Description for the back of the card, ensures its in english
+            const speciesResponse = await fetch(`${data.species.url}`)
+            const speciesData = await speciesResponse.json();
+        
             let i = 9;
-            console.log('data.flavor', data.flavor_text_entries[i].language.name);
-            while (data.flavor_text_entries[i].language.name !== "en"){
+            console.log('speciesData.flavor', speciesData.flavor_text_entries[i].language.name);
+            while (speciesData.flavor_text_entries[i].language.name !== "en"){
                 i++;
             }
-            console.log(i);
-            pokeDes.innerHTML = data.flavor_text_entries[i].flavor_text;
-            })
+          
+            pokeDes.innerHTML = speciesData.flavor_text_entries[i].flavor_text;
+            
+            //Reveals flip card button and resets to frontside
+            if (window.innerWidth < 650){
+                pokeCardFront.style.display = "block";
+                pokeCardBack.style.display = "none";
+                flipBtn.style.display = "block";
+            }
 
         }, 300);
        
 
-        setTimeout(()=> {
+        setTimeout( async ()=> {
             pokeCard.style.opacity = "1";
             pokeCardBack.style.opacity = "1";
         }, 950)
-    })
+    
 
-}
+    }
     
 })
-
 
 fillPokemonOptions(pokemonG1, pokeDropdownG1);
 fillPokemonOptions(pokemonG2, pokeDropdownG2);
@@ -199,3 +230,27 @@ pokeDropdownListener(pokeDropdownG5);
 pokeDropdownListener(pokeDropdownG6);
 pokeDropdownListener(pokeDropdownG7);
 pokeDropdownListener(pokeDropdownG8);
+
+
+
+// We are gonna make the card flip
+
+console.log(window.innerWidth);
+
+// I want to do a button here that flips the card, it is set in css already but we actually arent reading from the CSS file.
+// So without this code I have to click the button first for it to even set the style. Is there anyway we can have this button
+// without setting the style.display first
+if (window.innerWidth < 650){
+    pokeCardFront.style.display = "block";
+    pokeCardBack.style.display = "none";
+}
+
+flipBtn.addEventListener('click', () => {
+    if(pokeCardFront.style.display == "block"){
+        pokeCardFront.style.display = "none";
+        pokeCardBack.style.display = "block"
+    } else {
+        pokeCardFront.style.display = "block";
+        pokeCardBack.style.display = "none";
+    }
+})

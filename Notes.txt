@@ -89,3 +89,7 @@ Under the pokemon logo we can have a small font that says something like "Got to
 0/4/22/2021
 
 The sizes of the cards are too big for smaller resolution screens, we're gonna need to have a fix for that.
+
+05/19/2021
+
+- On mobile we can do something like click on the card and it will flip to the backside, click the card again and it will flip again

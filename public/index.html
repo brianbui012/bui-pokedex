@@ -19,11 +19,18 @@
     <nav class="nav-container">
         <a href="/"><img class="logo" src="img/31-319697_pokemon-logo-png-transparent-pokemon-logo-png-images.png"
                 alt="Logo"></a>
-        <a href="#">About</a>
-        <!-- <a href="#">Placeholder</a> -->
-        <a href="#">Technologies</a>
+        <a href="#" class="about">About Poked&eacute;x</a>
         <a href="#" id="hamburger"><i class="fas fa-bars"></i></a>
     </nav>
+
+    <div class="overlay">
+        <div class="about-modal">
+            <h2>About Poked&eacute;x</h2>
+            <p>The Poked&eacute;x App is built off of Vanilla Javascript. This app uses the PokeAPI.co to pull Pokemon's
+                information and renders it to the screen.</p>
+            <button class="close-modal">Close</button>
+        </div>
+    </div>
 
     <main class="main-content">
         <img src="img/pokeball.png" class="pokeball-img" alt=" pokeball">
@@ -71,13 +78,12 @@
             </div>
         </div>
 
+        <button class="flipBtn">Flip Card</button>
 
-        <!-- We will make the fourm a flex box row and put it in a bigger flexbox that is a column -->
         <form action="#" class="poke-form">
             <label for="poke-search"></label>
             <input class="poke-search" type="text" placeholder="Pok&eacute; Search">
             <img src="img/pokeball-search.png" class="poke-button" alt="">
-            <!-- <button class="poke-button">Search</button> -->
         </form>
 
         <div class="generation-container">
@@ -124,8 +130,6 @@
 
 
     </main>
-
-
     <script type="module" src="js/javascript.js"></script>
 </body>
 
