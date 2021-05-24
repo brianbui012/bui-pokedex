@@ -95,3 +95,13 @@ The sizes of the cards are too big for smaller resolution screens, we're gonna n
 - On mobile we can do something like click on the card and it will flip to the backside, click the card again and it will flip again
 - stylize flip button
 - try catch and understand how fetch fails
+- backside sprite not in system
+- we can do a try catch block and if the block fails we can display a modal warning that says "This is not a real pokemon try again"
+        -We have two ways of dealing with this, we can make modal, a flash warning pop up, or a paragraph that display: blocks when the error happens, or opacity: 1 when it happens. 
+            -cons of having display: none -> block is it will shift the content for a second.
+            -having a whole modal that appears might be too much
+
+- we can extract and break down our code in the try to better compartmentalize / division of work -- one function should do one thing
+- a reset card function
+    - is this how we should factor out our code? The reset card function uses the DOM directly instead of doing something like passing in any DOM element to get 0'ed like function (anyelement) {anyelement.style.opacity: 0 }
+- ask about flipping of the card and how you have to click on the button twice, first time to set the display to block then again to none 

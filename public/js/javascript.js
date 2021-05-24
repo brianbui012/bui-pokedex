@@ -96,104 +96,113 @@ pokeButton.addEventListener('click', async (e)=> {
         console.log('We can add an element that flashes, please input pokemon');
     } else {
 
-        //question how do we turn this fetch to async / await // I think we turn the anonymous function into async
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNameSearch}`);
-        const data = await response.json();
-    // .then((response) => response.json())
-    // .then(data => {
-        pokeballImg.style.opacity = "0";
-        pokeCard.style.opacity = "0";
-        pokeCardBack.style.opacity = "0";
-
-        setTimeout( async() => {
-            if(pokeCard.classList.value === 'poke-card'){
-                pokeCard.classList.add('border');
-                pokeCardBack.classList.add('border-back')
-            };
-      
-            //If a pokemon was normal / flying type then flying should be shown in the background isntead of normal
-            //because flying type is more of a defining characteristic of that pokemon rather than normal
-            if(data.types.length > 1 && data.types[0].type.name === "normal" && data.types[1].type.name === "flying"){
-                pokeCard.className = `poke-card border ${data.types[1].type.name}-background`;
-                pokeCardBack.className = `poke-card-back border-back ${data.types[1].type.name}-background`;
-            } else {
-                pokeCard.className = `poke-card border ${data.types[0].type.name}-background`;
-                pokeCardBack.className = `poke-card-back border-back ${data.types[0].type.name}-background`;
-            }
+        try{
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNameSearch}`);
+            //The fetch will fail at this step at .json and will then go to the catch block
+            const data = await response.json();
+            
+            fadeCardOut();
           
-            pokeImg.src = data.sprites.front_default;
-            pokeName.innerHTML = data.name;
+            setTimeout( async() => {
+                if(pokeCard.classList.value === 'poke-card'){
+                    pokeCard.classList.add('border');
+                    pokeCardBack.classList.add('border-back')
+                };
+          
+                //If a pokemon was normal / flying type then flying should be shown in the background isntead of normal
+                //because flying type is more of a defining characteristic of that pokemon rather than normal
+                if(data.types.length > 1 && data.types[0].type.name === "normal" && data.types[1].type.name === "flying"){
+                    pokeCard.className = `poke-card border ${data.types[1].type.name}-background`;
+                    pokeCardBack.className = `poke-card-back border-back ${data.types[1].type.name}-background`;
+                } else {
+                    pokeCard.className = `poke-card border ${data.types[0].type.name}-background`;
+                    pokeCardBack.className = `poke-card-back border-back ${data.types[0].type.name}-background`;
+                }
+              
+                pokeImg.src = data.sprites.front_default;
+                pokeName.innerHTML = data.name;
+        
+                // Fill in Pokemon Type
+                pokeTypeIcon1.src = "";
+                pokeTypeIcon2.src = "";
+                pokeTypeIcon1.className = '';
+                pokeTypeIcon2.className = '';
+                pokeTypeIcon2.style.display = "none";
+            
+                pokeType.innerHTML = `${data.types[0].type.name}`;
+                pokeNumDisplay.innerHTML = `#${fillInZero(data.id.toString())}`
+                pokeTypeIcon1.src = `img/icons/${data.types[0].type.name}.svg`
+                pokeTypeIcon1.className = `type-icon-1 ${data.types[0].type.name}`
+                
+                if(data.types.length > 1){
+                    pokeType.innerHTML += `/${data.types[1].type.name}`
+                    
+                    pokeTypeIcon2.src = `img/icons/${data.types[1].type.name}.svg`
+                    pokeTypeIcon2.style.display = "inline-block";
+                    pokeTypeIcon2.className = `type-icon-2 ${data.types[1].type.name}`
+                    
+                } else {
+                    pokeType.innerHTML = `${data.types[0].type.name}`
+                }
     
-            // Fill in Pokemon Type
-            pokeTypeIcon1.src = "";
-            pokeTypeIcon2.src = "";
-            pokeTypeIcon1.className = '';
-            pokeTypeIcon2.className = '';
-            pokeTypeIcon2.style.display = "none";
-        
-            pokeType.innerHTML = `${data.types[0].type.name}`;
-            pokeNumDisplay.innerHTML = `#${fillInZero(data.id.toString())}`
-            pokeTypeIcon1.src = `img/icons/${data.types[0].type.name}.svg`
-            pokeTypeIcon1.className = `type-icon-1 ${data.types[0].type.name}`
+                pokeAbility.innerHTML = `Ability: ${data.abilities[0].ability.name}`
+    
+                // If No Back Sprite (will implement later)
+                // if(data.sprites.back_default === null){
+                //     throw new Error('The backside of the pokemon sprite has not been added to the database. Please try again some other time.')
+                // }
+                pokeImgBack.src = data.sprites.back_default;
             
-            if(data.types.length > 1){
-                pokeType.innerHTML += `/${data.types[1].type.name}`
-                
-                pokeTypeIcon2.src = `img/icons/${data.types[1].type.name}.svg`
-                pokeTypeIcon2.style.display = "inline-block";
-                pokeTypeIcon2.className = `type-icon-2 ${data.types[1].type.name}`
-                
-            } else {
-                pokeType.innerHTML = `${data.types[0].type.name}`
-            }
-
-            pokeAbility.innerHTML = `Ability: ${data.abilities[0].ability.name}`
-
-            // If No Back Sprite (will implement later)
-            // if(data.sprites.back_default === null){
-            //     throw new Error('The backside of the pokemon sprite has not been added to the database. Please try again some other time.')
-            // }
-            pokeImgBack.src = data.sprites.back_default;
-        
-            hp.innerHTML = `HP:</span>${data.stats[0].base_stat}`;
-            atk.innerHTML = `ATK:</span>${data.stats[1].base_stat}`;
-            def.innerHTML = `DEF:</span>${data.stats[2].base_stat}`;
-            spatk.innerHTML = `SPATK:</span>${data.stats[3].base_stat}`;
-            spdef.innerHTML = `SPDEF:</span>${data.stats[4].base_stat}`;
-            speed.innerHTML = `SPED:</span>${data.stats[5].base_stat}`;
-
-
-            //Description for the back of the card, ensures its in english
-            const speciesResponse = await fetch(`${data.species.url}`)
-            const speciesData = await speciesResponse.json();
-        
-            let i = 9;
-            console.log('speciesData.flavor', speciesData.flavor_text_entries[i].language.name);
-            while (speciesData.flavor_text_entries[i].language.name !== "en"){
-                i++;
-            }
-          
-            pokeDes.innerHTML = speciesData.flavor_text_entries[i].flavor_text;
+                hp.innerHTML = `HP:</span>${data.stats[0].base_stat}`;
+                atk.innerHTML = `ATK:</span>${data.stats[1].base_stat}`;
+                def.innerHTML = `DEF:</span>${data.stats[2].base_stat}`;
+                spatk.innerHTML = `SPATK:</span>${data.stats[3].base_stat}`;
+                spdef.innerHTML = `SPDEF:</span>${data.stats[4].base_stat}`;
+                speed.innerHTML = `SPED:</span>${data.stats[5].base_stat}`;
+    
+    
+                //Description for the back of the card, ensures its in english
+                const speciesResponse = await fetch(`${data.species.url}`)
+                const speciesData = await speciesResponse.json();
             
+                let i = 9;
+                console.log('speciesData.flavor', speciesData.flavor_text_entries[i].language.name);
+                while (speciesData.flavor_text_entries[i].language.name !== "en"){
+                    i++;
+                }
+              
+                pokeDes.innerHTML = speciesData.flavor_text_entries[i].flavor_text;
+                
+    
+                if (window.innerWidth < 650){
+                    pokeCardFront.style.display = "block";
+                    pokeCardBack.style.display = "none";
+                    flipBtn.style.opacity = "1";
+                }
+    
+            }, 300);
+           
+            //Renders the card to appear after data loads
+            setTimeout( async ()=> {
+                pokeCard.style.opacity = "1";
+                pokeCardBack.style.opacity = "1";
+            }, 950)
+        
+        }catch(err){
+            console.log("The Pokemon you tried to serach does not exist, please try again!");
+        }
 
-            if (window.innerWidth < 650){
-                pokeCardFront.style.display = "block";
-                pokeCardBack.style.display = "none";
-                flipBtn.style.opacity = "1";
-            }
-
-        }, 300);
        
-
-        setTimeout( async ()=> {
-            pokeCard.style.opacity = "1";
-            pokeCardBack.style.opacity = "1";
-        }, 950)
-    
 
     }
     
 })
+
+function fadeCardOut(){
+    pokeballImg.style.opacity = "0";
+    pokeCard.style.opacity = "0";
+    pokeCardBack.style.opacity = "0";
+}
 
 fillPokemonOptions(pokemonG1, pokeDropdownG1);
 fillPokemonOptions(pokemonG2, pokeDropdownG2);
@@ -204,12 +213,12 @@ fillPokemonOptions(pokemonG6, pokeDropdownG6);
 fillPokemonOptions(pokemonG7, pokeDropdownG7);
 fillPokemonOptions(pokemonG8, pokeDropdownG8);
 
-function noBackSideRender(response) {
-    if(!response.ok){
-        throw Error(response.statusText);
-    }
-    return response
-}
+// function noBackSideRender(response) {
+//     if(!response.ok){
+//         throw Error(response.statusText);
+//     }
+//     return response
+// }
 
 
 function pokeDropdownListener(pokeDropdown){
@@ -221,7 +230,6 @@ function pokeDropdownListener(pokeDropdown){
     })
 }
 
-
 pokeDropdownListener(pokeDropdownG1);
 pokeDropdownListener(pokeDropdownG2);
 pokeDropdownListener(pokeDropdownG3);
@@ -232,8 +240,6 @@ pokeDropdownListener(pokeDropdownG7);
 pokeDropdownListener(pokeDropdownG8);
 
 
-
-// We are gonna make the card flip
 
 console.log(window.innerWidth);
 
