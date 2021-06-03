@@ -105,3 +105,7 @@ The sizes of the cards are too big for smaller resolution screens, we're gonna n
 - a reset card function
     - is this how we should factor out our code? The reset card function uses the DOM directly instead of doing something like passing in any DOM element to get 0'ed like function (anyelement) {anyelement.style.opacity: 0 }
 - ask about flipping of the card and how you have to click on the button twice, first time to set the display to block then again to none 
+
+- is there a way to edit CSS but not from style on the JS
+- normalize css
+- add .gitignore to note file

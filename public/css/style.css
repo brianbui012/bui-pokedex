@@ -12,7 +12,7 @@ body {
   background-position: 50% 100%;
   min-height: 100vh;
   height: 100%;
-  padding: 0.2em 0 3em 0;
+  padding-bottom: 3em;
 }
 
 /* Navbar====================================== */
@@ -75,6 +75,10 @@ nav a:hover:not(:first-child) {
   align-items: center;
   margin-top: 2.5em;
   row-gap: 2em;
+}
+
+.container {
+  background-color: rgba(46, 68, 143, 0.5);
 }
 
 .poke-card-container {
@@ -338,7 +342,7 @@ h1 {
 }
 
 .flipBtn {
-  opacity: 0;
+  display: none;
   padding: 0.7em 0.5em 0.5em 0.5em;
   background-color: #ff6961;
   color: black;
@@ -444,6 +448,10 @@ h1 {
 }
 
 @media only screen and (max-width: 650px) {
+  .nav-container {
+    padding-bottom: 1em;
+  }
+
   .main-content {
     row-gap: 1em;
     margin-top: 2em;
@@ -499,6 +507,10 @@ h1 {
   .poke-card-back {
     display: none;
     min-height: 24.5em;
+  }
+
+  .flipBtn {
+    display: block;
   }
 
   .generation-container {

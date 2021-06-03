@@ -94,6 +94,7 @@ pokeButton.addEventListener('click', async (e)=> {
     const pokeNameSearch = pokeSearch.value.toLowerCase();
     if(pokeNameSearch === ""){
         console.log('We can add an element that flashes, please input pokemon');
+        // We can make an absolute warning
     } else {
 
         try{
@@ -103,7 +104,7 @@ pokeButton.addEventListener('click', async (e)=> {
             
             fadeCardOut();
           
-            setTimeout( async() => {
+            setTimeout( async () => {
                 if(pokeCard.classList.value === 'poke-card'){
                     pokeCard.classList.add('border');
                     pokeCardBack.classList.add('border-back')
@@ -141,9 +142,7 @@ pokeButton.addEventListener('click', async (e)=> {
                     pokeTypeIcon2.style.display = "inline-block";
                     pokeTypeIcon2.className = `type-icon-2 ${data.types[1].type.name}`
                     
-                } else {
-                    pokeType.innerHTML = `${data.types[0].type.name}`
-                }
+                 } 
     
                 pokeAbility.innerHTML = `Ability: ${data.abilities[0].ability.name}`
     
@@ -177,17 +176,17 @@ pokeButton.addEventListener('click', async (e)=> {
                 if (window.innerWidth < 650){
                     pokeCardFront.style.display = "block";
                     pokeCardBack.style.display = "none";
-                    flipBtn.style.opacity = "1";
+                    flipBtn.style.opacity = "block";
                 }
     
             }, 300);
-           
+          
             //Renders the card to appear after data loads
             setTimeout( async ()=> {
                 pokeCard.style.opacity = "1";
                 pokeCardBack.style.opacity = "1";
-            }, 950)
-        
+            }, 930)
+      
         }catch(err){
             console.log("The Pokemon you tried to serach does not exist, please try again!");
         }
@@ -246,18 +245,23 @@ console.log(window.innerWidth);
 // I want to do a button here that flips the card, it is set in css already but we actually arent reading from the CSS file.
 // So without this code I have to click the button first for it to even set the style. Is there anyway we can have this button
 // without setting the style.display first
-if (window.innerWidth < 650){
-    pokeCardFront.style.display = "block";
-    pokeCardBack.style.display = "none";
-}
+// if (window.innerWidth < 650){
+//     pokeCardFront.style.display = "block";
+//     pokeCardBack.style.display = "none";
+// }
 
-// window.addEventListener('resize', () => {
-//     if (window.innerWidth > 650){
-//         flipBtn.style.display = "none";
-//     } else {
-//       flipBtn.style.display = "block";
-//     }
-//   })
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 650){
+        // flipBtn.style.opacity = 0;
+        flipBtn.style.display = 'none';
+        pokeCardFront.style.display = "block";
+        pokeCardBack.style.display = "block";
+    } else {
+        flipBtn.style.display = "block";
+        pokeCardFront.style.display = "block";
+        pokeCardBack.style.display = "none";
+    }
+  })
   
 
 flipBtn.addEventListener('click', () => {
@@ -269,3 +273,16 @@ flipBtn.addEventListener('click', () => {
         pokeCardBack.style.display = "none";
     }
 })
+
+pokeCardContainer.addEventListener('click', () => {
+    console.log("Fire")
+    if(pokeCardFront.style.display == "block"){
+        pokeCardFront.style.display = "none";
+        pokeCardBack.style.display = "block"
+    } else {
+        pokeCardFront.style.display = "block";
+        pokeCardBack.style.display = "none";
+    }
+})
+
+
